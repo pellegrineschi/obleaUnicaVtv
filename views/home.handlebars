@@ -3,7 +3,7 @@
     <h1 class="text-center mb-4">VTV Metropolitana</h1>
     <div id="caja" class="caja" ></div>
   </div>
-  <form>
+  <form onsubmit="return addMensage()" >
     <div class="mb-3">
       <label for="dominio" class="form-label">Dominio</label>
       <input
@@ -25,3 +25,6 @@
     <button type="submit" class="btn btn-primary">enviar</button>
   </form>
 </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script> 
