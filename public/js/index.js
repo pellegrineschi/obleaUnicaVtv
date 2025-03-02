@@ -9,23 +9,29 @@ socket.on('all-message', (data)=>{
 })
 
 const render = (data) => {
-    const html = data.map((elem, index) => {
-      return `
-        <div class="card mb-3" data-id="${index}">
-          <div class="card-body d-flex justify-content-between align-items-center">
+  const html = data.map((elem, index) => {
+    return `
+      <div class="card mb-3" data-id="${index}">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="check-${index}">
               <label class="form-check-label" for="check-${index}">
                 <strong>${elem.dominio}</strong> oblea <em>${elem.oblea}</em>
               </label>
             </div>
+            <span class="text-muted">${elem.time}</span>
+          </div>
+          <div class="mt-2 text-end">
             <button class="btn btn-danger" onclick="deleteItem(${index})">Borrar</button>
           </div>
         </div>
-      `;
-    }).join('');
-    document.getElementById('caja').innerHTML = html;
-  }
+      </div>
+    `;
+  }).join('');
+  document.getElementById('caja').innerHTML = html;
+}
+
   
   
 
