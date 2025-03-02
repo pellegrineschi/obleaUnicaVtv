@@ -1,4 +1,4 @@
-const socket = io()
+const socket = io() 
 
 socket.on('all-message', (data)=>{
  console.log(data);
@@ -46,11 +46,9 @@ function deleteItem(index) {
     
     // Verificar si la casilla existe y está marcada
     if (checkbox && checkbox.checked) {
-      // Buscar el elemento card más cercano y removerlo del DOM
-      const card = checkbox.closest('.card');
-      if (card) {
-        card.remove();
-      }
+      // Emitir el evento de borrado al servidor
+      socket.emit('delete-message', index);
+      
     } else {
       // Mostrar un mensaje si la casilla no está marcada
       alert("Tienes que confirmar la oblea");

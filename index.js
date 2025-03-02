@@ -36,6 +36,15 @@ io.on('connection', (socket)=>{
         arrMessage.push(data)
         io.emit('all-message', arrMessage)
     })
+
+    // Listener para borrar el mensaje
+  socket.on('delete-message', (index) => {
+    // Eliminar el elemento del arreglo global. Nota: usar índices puede tener inconvenientes
+    // si el arreglo cambia; considera usar un identificador único para cada mensaje.
+    arrMessage.splice(index, 1);
+    // Emitir la lista actualizada a todos los clientes
+    io.emit('all-message', arrMessage);
+  });
     
 })
 
