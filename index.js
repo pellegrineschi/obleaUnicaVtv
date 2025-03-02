@@ -34,7 +34,7 @@ io.on('connection', (socket)=>{
 
     socket.on('new-message',(data)=>{
         arrMessage.push(data)
-        socket.emit('all-message', arrMessage)
+        io.emit('all-message', arrMessage)
     })
     
 })
